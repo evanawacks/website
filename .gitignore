@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Build output (for a future Vite/Astro rebuild)
+node_modules/
+dist/
