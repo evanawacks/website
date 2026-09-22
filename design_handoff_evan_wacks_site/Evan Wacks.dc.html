@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #fbc4f4; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  @keyframes ew-bob { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-7px) rotate(-1deg); } }
+  @keyframes ew-jostle { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 25% { transform: translate(-3px, 1.5px) rotate(-0.15deg); } 55% { transform: translate(3px, -1.5px) rotate(0.15deg); } 80% { transform: translate(-1.5px, 1px) rotate(-0.06deg); } }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+<div style="{{ theme }}">
+<sc-if value="{{ showTransport }}">
+  <div style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 70; display: flex; align-items: center; gap: 14px; padding: 10px 18px 10px 12px; border-radius: 999px; background: rgba(21, 25, 29, 0.92); color: #ffffff; box-shadow: 0 12px 34px rgba(0,0,0,0.22); backdrop-filter: blur(8px); font-family: 'IBM Plex Mono', monospace;">
+    <button type="button" onClick="{{ seekBack }}" title="Back 15 seconds" style="display: flex; align-items: center; gap: 4px; padding: 7px 11px; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; background: transparent; color: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.14);">↺ 15</button>
+    <button type="button" onClick="{{ transportToggle }}" title="{{ transportLabel }}" style="width: 38px; height: 38px; display: grid; place-items: center; border: none; border-radius: 50%; background: #ffffff; color: #15191d; font-size: 12px; line-height: 1; cursor: pointer;" style-hover="transform: scale(1.06);">{{ transportGlyph }}</button>
+    <button type="button" onClick="{{ seekFwd }}" title="Forward 15 seconds" style="display: flex; align-items: center; gap: 4px; padding: 7px 11px; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; background: transparent; color: #ffffff; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;" style-hover="background: rgba(255,255,255,0.14);">15 ↻</button>
+    <div style="display: flex; flex-direction: column; gap: 2px; padding-left: 4px; padding-right: 6px;">
+      <span style="font-size: 11px; letter-spacing: 0.04em; white-space: nowrap;">{{ transportTitle }}</span>
+      <span style="font-size: 10px; opacity: 0.62;">{{ transportTime }}</span>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ isPro }}" hint-placeholder-val="{{ true }}">
+<div ref="{{ proRootRef }}" style="position: relative; background: #ffffff; font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #15191d; -webkit-font-smoothing: antialiased;">
+  <div style="max-width: 1060px; margin: 0 auto; padding: 0 32px;">
+
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 0; flex-wrap: wrap; border-bottom: 1px solid #e7eaee;">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; font-weight: 500; letter-spacing: -0.01em;">Evan Wacks</span>
+      <nav style="display: flex; align-items: center; gap: 30px; font-size: 14.5px; font-weight: 400; flex-wrap: wrap; color: #4b5560;">
+        <a href="#p-work">Work</a>
+        <a href="#p-earlier" data-om-label="Education">Education</a>
+        <a href="#p-piano">Piano</a>
+        <a href="#p-life">Outside</a>
+        <button type="button" onClick="{{ toggleMode }}" style="padding: 9px 16px; border: 1px solid #15191d; border-radius: 4px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #15191d; cursor: pointer; white-space: nowrap;" style-hover="background: #15191d; color: #ffffff;">Fun version</button>
+      </nav>
+    </header>
+
+    <section style="display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 44px; align-items: start; padding: 84px 0 72px;">
+      
+      <div style="display: flex; flex-direction: column; gap: 28px; align-items: flex-start;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #78838f;">BORN IN BROOKLYN, BASED IN BOSTON</span>
+        <sc-if value="{{ isHeadPlain }}" hint-placeholder-val="{{ true }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.04; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;">Good Data is Fundamental<br />to Great Insights</h1>
+        </sc-if>
+        <sc-if value="{{ isHeadTealData }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.04; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;">Good <span style="color: #0f6d80;">Data</span> is Fundamental<br />to Great Insights</h1>
+        </sc-if>
+        <sc-if value="{{ isHeadTealInsights }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.04; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;">Good Data is Fundamental<br />to <span style="color: #0f6d80;">Great Insights</span></h1>
+        </sc-if>
+        <sc-if value="{{ isHeadMarkBlue }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.26; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;">Good <span style="background: #a8e9f5; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Data</span> is <span style="background: #b8f0bd; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Fundamental</span><br />to Great <span style="background: #fbc4f4; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Insights</span></h1>
+        </sc-if>
+        <sc-if value="{{ isHeadMarkYellow }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.26; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;">Good <span style="background: #fbe27a; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Data</span> is <span style="background: #f9aeae; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Fundamental</span><br />to Great <span style="background: #a8e9f5; padding: 0.16em 0.12em 0.02em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone;">Insights</span></h1>
+        </sc-if>
+        <sc-if value="{{ isHeadTwoTone }}">
+          <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: clamp(42px, 6.4vw, 76px); line-height: 1.04; letter-spacing: -0.022em; font-weight: 500; text-wrap: balance;"><span style="color: #0f6d80;">Good Data</span> is Fundamental<br />to <span style="color: #8a2f7a;">Great Insights</span></h1>
+        </sc-if>
+        <p style="margin: 0; max-width: 52ch; font-size: 17px; line-height: 1.6; color: #4b5560; text-wrap: pretty;">Senior Marketing Analyst at Cirrus Systems, where I steer a multi-million-dollar paid social spend with custom built data infrastructure.<br></p>
+        <div style="display: flex; gap: 22px; flex-wrap: wrap; align-items: center; padding-top: 4px;">
+          <a href="mailto:Evan.a.wacks@gmail.com" style="padding: 13px 24px; background: #15191d; color: #ffffff; border-radius: 4px; font-size: 15px; font-weight: 500;">Get in touch</a>
+          <a href="https://www.linkedin.com/in/evan-wacks/" style="font-size: 15px; color: #4b5560; border-bottom: 1px solid #c9d0d8; padding-bottom: 2px;">LinkedIn</a>
+        </div>
+      </div><div style="{{ proPhotoStyle }}">
+        <img src="./img_4335-3-muc57rwf-261s.jpg" alt="Evan Wacks" style="display: block; width: 100%; height: auto; aspect-ratio: 3024 / 4007; object-fit: cover; border-radius: 4px; filter: saturate(0.9)"><span style="display: block; margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8b959f;">Acadia, Maine</span>
+      </div>
+    </section>
+
+    <section id="p-work" style="padding: 8px 0 76px; border-top: 1px solid #e7eaee;">
+      <div style="display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: 48px; padding-top: 44px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="./cirrus-logo.png" alt="Cirrus Systems logo" style="width: 78px; height: 72px; display: block; flex: none">
+            <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Cirrus Systems</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14.5px; font-weight: 600;">Senior Marketing Analyst</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8b959f;">June 2026 — present</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-size: 14.5px; font-weight: 500; color: #4b5560;">Marketing Analyst</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #8b959f;">June 2025 — June 2026</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-bottom: 26px; border-bottom: 1px solid #eef1f4;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Multi-million-dollar paid social</h3>
+            <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 62ch; width: 643px; height: 111px">Managing the spend across all Meta and TikTok campaigns requires precision.<br>Design A/B testing on forms, landing pages and audiences to boost performance.<br>Every dollar accounted for and put to good use.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding: 26px 0; border-bottom: 1px solid #eef1f4;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Data infrastructure</h3>
+            <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 62ch;">I engineered a custom marketing and sales database on Google Cloud.<br>Data refreshes live data across the organization.<br>Over $20k and 1,000 hours saved per year–no more reliance on overpriced APIs and manually uploading CSVs.&nbsp;</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 26px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Visualization &amp; reporting</h3>
+            <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 62ch;">Polished Looker Studio dashboards that leadership can read in seconds.<br>The source of truth for sales and marketing performance.<br></p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #4b5560;">
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Python</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">SQL</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">R</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Google Cloud</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Looker Studio</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Power BI</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Qualtrics</span>
+            <span style="padding: 6px 11px; border: 1px solid #e0e5ea; border-radius: 3px;">Stata</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p-earlier" style="padding: 8px 0 76px; border-top: 1px solid #e7eaee;">
+      <div style="display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: 48px; padding-top: 44px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="./pasted-1790105643189-0-mud2oibb-ktsv.png" alt="Wesleyan University insignia" style="width: 74px; height: auto; display: block; flex: none;">
+            <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Wesleyan University</h2>
+          </div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b959f;">2021 — 2025</span>
+          <div style="display: flex; flex-direction: column; gap: 4px; padding-top: 10px; font-size: 14px; line-height: 1.5; color: #4b5560;">
+            <span>Bachelor of Arts</span>
+            <span>Psychology major</span>
+            <span>Certificate in Applied Data Science</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; padding-bottom: 26px; border-bottom: 1px solid #eef1f4;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: #8b959f; padding-top: 3px;">Jan 2023 — May 2025</span>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Head Teaching Assistant</h3>
+              <span style="font-size: 14.5px; color: #78838f;">Quantitative Analysis Center</span>
+              <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 60ch;">Managed 15 TAs and mentored 52 students over nine semesters — modeling, visualization, methodology, and the harder part: saying what the data means.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; padding: 26px 0; border-bottom: 1px solid #eef1f4;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: #8b959f; padding-top: 3px;">Sept 2023 — May 2025</span>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Immigration Research Assistant</h3>
+              <span style="font-size: 14.5px; color: #78838f;">Cultural Psychology Research Lab</span>
+              <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 60ch;">I worked with Dr. Michael Perez to design a study on immigration sentiment. <br>We sent it to a panel of 342 respondents, performed MANOVAs, graphed the data, and presented the findings to peers and professors alike.</p>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 24px; padding-top: 26px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.06em; color: #8b959f; padding-top: 3px;">2025 — present</span>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <h3 style="margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;">Statistical Consultant</h3>
+              <span style="font-size: 14.5px; color: #78838f;">ASA DataFest @ Wesleyan</span>
+              <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #4b5560; max-width: 60ch;">My team won the 48-hour competition in 2024 with a fantastic team.<br>Now I go back every year to help other students take on the hackathon and explore their passion for data science.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p-piano" style="padding: 8px 0 76px; border-top: 1px solid #e7eaee;">
+      <div style="display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: 48px; padding-top: 44px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Piano</h2>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b959f;">Improvisation</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px; align-items: flex-start; max-width: 620px; width: 100%;">
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.65; color: #4b5560; max-width: 56ch;">My pieces only exist in my head–and in my phone's voice memos.</p>
+          <div style="width: 100%; border: 1px solid #e0e5ea; border-radius: 6px; padding: 22px 24px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+              <button type="button" onClick="{{ togglePlay }}" style="display: flex; align-items: center; gap: 12px; padding: 11px 22px 11px 14px; border: 1px solid #15191d; border-radius: 4px; background: #15191d; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #ffffff; cursor: pointer;">
+                <span style="width: 26px; height: 26px; border-radius: 50%; background: #ffffff; color: #15191d; display: grid; place-items: center; font-size: 11px; line-height: 1;">{{ playGlyph }}</span>
+                <span>{{ playLabel }}</span>
+              </button>
+              <label style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #78838f; cursor: pointer; border-bottom: 1px solid #d7dde3; padding-bottom: 3px;">
+                
+                <input type="file" accept="audio/*" onChange="{{ onPickAudio }}" style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none;">
+              </label>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <div style="height: 3px; background: #e7eaee; border-radius: 999px; overflow: hidden;">
+                <div style="height: 100%; width: {{ progressPct }}; background: #15191d;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8b959f;">
+                <span>{{ elapsedLabel }}</span>
+                <span>{{ totalLabel }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p-life" style="padding: 8px 0 80px; border-top: 1px solid #e7eaee;">
+      <div style="display: grid; grid-template-columns: minmax(0, 0.32fr) minmax(0, 1fr); gap: 48px; padding-top: 44px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: -0.01em;">Outside work</h2>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8b959f;">Arepo Farms, NH</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 26px;">
+          <p style="margin: 0; font-size: 16.5px; line-height: 1.65; color: #4b5560; max-width: 60ch;">Goat farming in New Hampshire, black diamond skiing in the Adirondacks, hiking in Maine, kayaking on the Charles. I can't recall an outdoor experience I don't enjoy, especially if animals were involved!</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px;">
+            <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+              <img src="./dogs-zeus-padme.png" alt="Padme and Zeus" style="display: block; width: 100%; height: 260px; object-fit: cover; border-radius: 4px; filter: saturate(0.9);">
+              <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8b959f;">Padme &amp; Zeus</figcaption>
+            </figure>
+            <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+              <img src="uploads/IMG_5300.JPEG" alt="Goats in the pasture" style="display: block; width: 100%; height: 260px; object-fit: cover; border-radius: 4px; filter: saturate(0.9);">
+              <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #8b959f;">Jerry, Venus &amp; Tommy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="border-top: 1px solid #e7eaee; padding: 40px 0 56px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; font-weight: 500; letter-spacing: -0.01em;">Let's talk.</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8b959f;">Boston, MA · 617-503-7939</span>
+      </div>
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 15px; color: #4b5560;">
+        <a href="mailto:Evan.a.wacks@gmail.com" style="border-bottom: 1px solid #c9d0d8; padding-bottom: 2px;">Evan.a.wacks@gmail.com</a>
+        <a href="https://www.linkedin.com/in/evan-wacks/" style="border-bottom: 1px solid #c9d0d8; padding-bottom: 2px;">LinkedIn</a>
+        <button type="button" onClick="{{ toggleMode }}" style="padding: 0; border: none; background: none; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8b959f; cursor: pointer; border-bottom: 1px solid #d7dde3;">See the fun version</button>
+      </div>
+    </footer>
+  </div>
+</div>
+</sc-if>
+<sc-if value="{{ isFun }}">
+<div ref="{{ funWrapRef }}" style="{{ funWrapStyle }}">
+<div style="background: var(--bg, #fbc4f4); font-family: 'Bricolage Grotesque', system-ui, sans-serif; color: var(--ink, #3f3546); padding-bottom: 8px;">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 26px;">
+
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="./duck-art.png" alt="Duck rosette art" style="width: 40px; height: 40px; object-fit: cover; border: 2px solid var(--line, #4a4453); border-radius: 9px; display: block; flex: none;">
+        <span style="font-weight: 800; font-size: 19px; letter-spacing: -0.02em;">Evan Wacks</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 24px; font-size: 15px; font-weight: 500; flex-wrap: wrap;">
+        <a href="#work">Work</a>
+        <a href="#before">Wesleyan</a>
+        <a href="#piano">Piano</a>
+        <a href="#farm">Dogs &amp; goats</a>
+        <a href="mailto:Evan.a.wacks@gmail.com" style="padding: 10px 18px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--t3, #f9aeae); font-weight: 600;">Say hello</a>
+        <button type="button" onClick="{{ toggleMode }}" style="padding: 10px 18px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc); font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 15px; font-weight: 600; color: var(--ink, #3f3546); cursor: pointer;" style-hover="background: var(--t1, #9fe9f4);">Back to serious</button>
+      </nav>
+    </header>
+
+    <section style="display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 44px; align-items: center; padding: 34px 0 76px;">
+      <div style="display: flex; flex-direction: column; gap: 24px; align-items: flex-start;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Boston, MA · <b></b>data Sciencist</span>
+        <div ref="{{ wrapRef }}" style="position: relative; width: 100%;">
+          <sc-if value="{{ isStage0 }}" hint-placeholder-val="{{ true }}">
+            <h1 style="margin: 0; font-size: clamp(26px, 3.9vw, 48px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; text-wrap: balance; font-family: Arial, Helvetica, sans-serif;">Data oh Data<br>The world is 1s and 0s<br>Life is far more</h1>
+          </sc-if>
+          <sc-if value="{{ isStage1 }}">
+            <h1 style="margin: 0; font-size: clamp(26px, 3.9vw, 48px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; text-wrap: balance; font-family: Arial, Helvetica, sans-serif">Wacks on Data</h1>
+          </sc-if>
+          <sc-if value="{{ isStage2 }}">
+            <h1 style="margin: 0; font-size: clamp(20px, 2.4vw, 29px); line-height: 1.25; letter-spacing: -0.015em; font-weight: 800; text-wrap: pretty; font-family: Arial, Helvetica, sans-serif;">Using Data to find Beta before Theta makes my findings outdated.</h1>
+          </sc-if>
+          <sc-if value="{{ isStage3 }}">
+            <h1 style="margin: 0; font-size: clamp(22px, 2.8vw, 34px); line-height: 1.18; letter-spacing: -0.02em; font-weight: 800; text-wrap: pretty; font-family: Arial, Helvetica, sans-serif;">Using data to unlock insights and drive evidence based decisions.</h1>
+          </sc-if>
+          <canvas ref="{{ canvasRef }}" onPointerDown="{{ onDown }}" onPointerMove="{{ onMove }}" onPointerUp="{{ onUp }}" onPointerLeave="{{ onUp }}" style="position: absolute; inset: -8px; width: calc(100% + 16px); height: calc(100% + 16px); touch-action: none; cursor: crosshair;"></canvas>
+        </div>
+        <sc-if value="{{ isStage0 }}" hint-placeholder-val="{{ true }}">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border: 2px dashed var(--line, #4a4453); border-radius: 999px; opacity: 0.7;">Not a fan of haikus? Scratch it out.</span>
+        </sc-if>
+        <sc-if value="{{ isStage1 }}">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border: 2px dashed var(--line, #4a4453); border-radius: 999px; opacity: 0.7;">Too cheesy?</span>
+        </sc-if>
+        <sc-if value="{{ isStage2 }}">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border: 2px dashed var(--line, #4a4453); border-radius: 999px; opacity: 0.7;">I wouldn't be offended this time–not my finest work.</span>
+        </sc-if>
+        <sc-if value="{{ isStage3 }}">
+          <button type="button" onClick="{{ revert }}" style="padding: 14px 24px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--t1, #9fe9f4); font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 16px; font-weight: 600; color: var(--ink, #3f3546); cursor: pointer; box-shadow: 4px 4px 0 var(--line, #4a4453);" style-active="transform: translate(4px, 4px); box-shadow: 0 0 0 var(--line, #4a4453);">Make it fun again</button>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border: 2px dashed var(--line, #4a4453); border-radius: 999px; opacity: 0.7;">Or scratch this one out too.</span>
+        </sc-if>
+        <p style="margin: 0; max-width: 46ch; font-size: 18px; line-height: 1.55; opacity: 0.85; text-wrap: pretty;">Data mercenary by day, piano-man by night.&nbsp; Goat farming in New Hampshire, skiing in the Adirondacks, hiking in Maine, kayaking on the Charles in Boston. Spending time with friends and family in such beautiful environments.&nbsp;</p>
+        <div style="display: flex; gap: 22px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 13px; opacity: 0.72;">
+          <span>Wesleyan University, Class of 2025<br>Winston Preparatory School New York, Class of 2021</span>
+        </div>
+        <div style="display: flex; gap: 13px; flex-wrap: wrap;">
+          <a href="#work" style="padding: 15px 26px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--t1, #9fe9f4); font-weight: 600; font-size: 16px; box-shadow: 4px 4px 0 var(--line, #4a4453);">What I do</a>
+          <a href="#piano" style="padding: 15px 26px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc); font-weight: 600; font-size: 16px;">Hear a piece</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 6px 0 0;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75;">Fancy a change of colors?</span>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="button" title="Duck Blue" onClick="{{ pickDuckBlue }}" style="padding: 0; width: 76px; height: 76px; border: 2px solid var(--line, #4a4453); border-radius: 12px; overflow: hidden; background: none; cursor: pointer; line-height: 0; transition: transform 200ms ease;" style-hover="transform: scale(1.12);" style-active="transform: scale(1.04);">
+              <img src="./swatch-duck-blue.png" alt="Duck Blue palette" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </button>
+            <button type="button" title="Bubblegum" onClick="{{ pickBubblegum }}" style="padding: 0; width: 76px; height: 76px; border: 2px solid var(--line, #4a4453); border-radius: 12px; overflow: hidden; background: none; cursor: pointer; line-height: 0; transition: transform 200ms ease;" style-hover="transform: scale(1.12);" style-active="transform: scale(1.04);">
+              <img src="./swatch-bubblegum.png" alt="Bubblegum palette" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </button>
+            <button type="button" title="Lemonade" onClick="{{ pickLemonade }}" style="padding: 0; width: 76px; height: 76px; border: 2px solid var(--line, #4a4453); border-radius: 12px; overflow: hidden; background: none; cursor: pointer; line-height: 0; transition: transform 200ms ease;" style-hover="transform: scale(1.12);" style-active="transform: scale(1.04);">
+              <img src="./swatch-lemonade.png" alt="Lemonade palette" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </button>
+            <button type="button" title="Pond Mint" onClick="{{ pickPondMint }}" style="padding: 0; width: 76px; height: 76px; border: 2px solid var(--line, #4a4453); border-radius: 12px; overflow: hidden; background: none; cursor: pointer; line-height: 0; transition: transform 200ms ease;" style-hover="transform: scale(1.12);" style-active="transform: scale(1.04);">
+              <img src="./swatch-pond-mint.png" alt="Pond Mint palette" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 30px;">
+      <div style="position: relative; padding: 16px;">
+        <div style="position: absolute; inset: 0; border: 2px solid var(--line, #4a4453); border-radius: 22px; background: var(--t2, #b8f0bd); transform: rotate(-3deg);"></div>
+        <div style="position: relative; border: 2px solid var(--line, #4a4453); border-radius: 20px; overflow: hidden; background: var(--surface, #fff6fc); box-shadow: 8px 8px 0 var(--line, #4a4453);">
+          <img src="./img_4335-3-muc57rwf-261s.jpg" alt="img_4335-3" width="3024" height="4007" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 3024px; aspect-ratio: 3024 / 4007">
+        </div>
+        <div style="position: absolute; bottom: -12px; left: -12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--t3, #f9aeae);">Acadia, Maine</div>
+      </div>
+
+      </div>
+    </section>
+
+    <section id="work" style="padding-bottom: 84px; display: flex; flex-direction: column; gap: 26px;">
+      <h2 style="margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800; max-width: 22ch;">Working at Cirrus Systems.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--surface, #fff6fc); padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="width: 54px; height: 54px; border: 2px solid var(--line, #4a4453); border-radius: 10px; background: var(--t1, #9fe9f4); transform: rotate(-8deg); display: grid; place-items: center; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 30px; line-height: 1; color: var(--line, #4a4453);">$</div>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Multi-Million $ Responsibility</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.82;">I manage paid social spend across Meta and TikTok. Getting it right means constantly looking for room for improvement, conducting rigorous A/B testing on forms, landing pages, audiences–carefully testing and accounting for every dollar spent.&nbsp;</p>
+        </div>
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--surface, #fff6fc); padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="width: 54px; height: 54px; display: flex; flex-direction: column; justify-content: center; gap: 4px;">
+            <div style="height: 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px / 6px; background: var(--t2, #b8f0bd);"></div>
+            <div style="height: 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px / 6px; background: var(--t2, #b8f0bd);"></div>
+            <div style="height: 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px / 6px; background: var(--t2, #b8f0bd);"></div>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Data Infrastructure</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.82;">Politicians are right, infrastructure isn't always fun, but it's critical. I happen to enjoy it, and it doesn't hurt that building bespoke marketing and sales data infrastructure led to $20k/yr and 1,000+/hrs a year of time in savings.&nbsp;</p>
+        </div>
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--surface, #fff6fc); padding: 26px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="width: 54px; height: 54px; display: flex; align-items: flex-end; gap: 5px; border-bottom: 2px solid var(--line, #4a4453); padding-bottom: 3px;">
+            <div style="flex: 1; height: 40%; border: 2px solid var(--line, #4a4453); border-radius: 3px 3px 0 0; background: var(--t3, #f9aeae);"></div>
+            <div style="flex: 1; height: 72%; border: 2px solid var(--line, #4a4453); border-radius: 3px 3px 0 0; background: var(--t3, #f9aeae);"></div>
+            <div style="flex: 1; height: 100%; border: 2px solid var(--line, #4a4453); border-radius: 3px 3px 0 0; background: var(--t3, #f9aeae);"></div>
+          </div>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Data Visualization</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.82;">The draft graphs I craft might be head scratchers, but putting in the time is always worth it. A polished (Looker) dashboard means leadership gets the point quickly, leading to massive savings on expensive dandruff shampoos.&nbsp;&nbsp;</p>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Python</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">SQL</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">R</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Google Cloud</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Looker Studio</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Power BI</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Qualtrics</span>
+        <span style="padding: 8px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Stata</span>
+      </div>
+    </section>
+
+    <section id="before" style="padding-bottom: 86px; display: flex; flex-direction: column; gap: 26px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; justify-content: space-between;">
+        <h2 style="margin: 0; font-size: clamp(26px, 3.6vw, 40px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 800; max-width: 24ch;">Four years at Wesleyan.</h2>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">2021 — 2025</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--t1, #9fe9f4); padding: 26px; display: flex; flex-direction: column; gap: 12px; box-shadow: 5px 5px 0 var(--line, #4a4453);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85;">Jan 2023 — May 2025</span>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Head Teaching Assistant</h3>
+          <span style="font-size: 14px; font-weight: 600; opacity: 0.8;"><span style="font-weight: normal;">Wesleyan Quantitative Analysis Center</span></span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.85;">Trepidation best describes how I felt walking into my first data class. If I let that fear live, I wouldn't have had the privilege of mentoring 52 students over nine semesters, helping them explore their interests and discovering a passion for data they never knew they had.</p>
+        </div>
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--t2, #b8f0bd); padding: 26px; display: flex; flex-direction: column; gap: 12px; box-shadow: 5px 5px 0 var(--line, #4a4453);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85;">Sept 2023 — May 2025</span>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Immigration Research Assistant</h3>
+          <span style="font-size: 14px; font-weight: 600; opacity: 0.8;"><span style="font-weight: normal;">Wesleyan Cultural Psychology Research Lab</span></span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.85;">I told Prof. Perez&nbsp;I never wanted to conduct research. He recruited me anyway. I got to design a study, write a survey, distribute it to hundreds of Americans, perform MANOVAs, then present on it. I'm incredibly grateful for him inviting me to the world of research. It gave me an appreciation for experimental and observational studies otherwise unobtainable through solving problem sets and reading papers.</p>
+        </div>
+        <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; background: var(--t3, #f9aeae); padding: 26px; display: flex; flex-direction: column; gap: 12px; box-shadow: 5px 5px 0 var(--line, #4a4453);">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85;">2025 - PRESENT</span>
+          <h3 style="margin: 0; font-size: 20px; letter-spacing: -0.02em;">Statistical Consultant</h3>
+          <span style="font-size: 14px; font-weight: 600; opacity: 0.8;">American Statistical Association DataFest @ Wesleyan</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.85;">After losing the previous year, my team won DataFest in 2024. I realized I loved two elements the most, learning from my previous mistakes, and seeing my team flourish. Now, as a consultant, I get to help students learn how to operate successfully as a team and share their fascinating data insights with their peers and the judges.</p>
+        </div>
+      </div>
+      
+    </section>
+
+    <section id="piano" style="padding-bottom: 88px;">
+      <div style="border: 2px solid var(--line, #4a4453); border-radius: 26px; background: var(--t2, #b8f0bd); padding: 38px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; box-shadow: 8px 8px 0 var(--line, #4a4453);">
+        <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc);">Composition</span>
+          <h2 style="margin: 0; font-size: clamp(28px, 3.6vw, 42px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800;">A piece I can never play twice</h2>
+          <p style="margin: 0; max-width: 40ch; font-size: 16px; line-height: 1.55; opacity: 0.85;">I don't know how to read or write music. I don't know proper form. I can't name a single chord, then play it. Those all are a-minor inconvenience and I don't let them stop me.</p>
+          <button type="button" onClick="{{ togglePlay }}" style="display: flex; align-items: center; gap: 14px; padding: 14px 26px 14px 18px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc); font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 17px; font-weight: 600; color: var(--ink, #3f3546); cursor: pointer; box-shadow: 4px 4px 0 var(--line, #4a4453);" style-hover="transform: translate(1px, 1px); box-shadow: 3px 3px 0 var(--line, #4a4453);" style-active="transform: translate(4px, 4px); box-shadow: 0 0 0 var(--line, #4a4453);">
+            <span style="width: 42px; height: 42px; border: 2px solid var(--line, #4a4453); border-radius: 50%; background: var(--t3, #f9aeae); display: grid; place-items: center; font-size: 15px; line-height: 1;">{{ playGlyph }}</span>
+            <span>{{ playLabel }}</span>
+          </button>
+          
+          <div style="width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 14px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc); overflow: hidden;">
+              <div style="height: 100%; width: {{ progressPct }}; background: var(--t1, #9fe9f4); border-right: 2px solid var(--line, #4a4453);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 12px; opacity: 0.75;">
+              <span>{{ elapsedLabel }}</span>
+              <span>{{ totalLabel }}</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: flex-end; gap: 7px; height: 150px; padding: 18px; border: 2px solid var(--line, #4a4453); border-radius: 18px; background: var(--surface, #fff6fc);">{{ bars }}</div>
+          <div style="display: flex; border: 2px solid var(--line, #4a4453); border-radius: 12px; overflow: hidden; background: var(--surface, #fff6fc);">
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--line, #4a4453);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--line, #4a4453);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--line, #4a4453);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--line, #4a4453);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--surface, #fff6fc);"></div>
+            <div style="flex: 1; height: 74px; border-right: 2px solid var(--line, #4a4453); background: var(--line, #4a4453);"></div>
+            <div style="flex: 1; height: 74px; background: var(--surface, #fff6fc);"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="farm" style="padding-bottom: 86px; display: flex; flex-direction: column; gap: 30px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 58ch;">
+        <h2 style="margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 800;">They aren't data dogs or coding goats. They are thieves...</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; opacity: 0.85; text-wrap: pretty;">Zeus and Padme started small, stealing the beds and couches. Then they graduated and learned organized crime, teaming up with the goats to steal my heart.&nbsp;</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;">
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; overflow: hidden; background: var(--t1, #9fe9f4); box-shadow: 6px 6px 0 var(--line, #4a4453);">
+            <img src="./dogs-zeus-padme.png" alt="img_3202-2" width="2496" height="3007" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 2496px; aspect-ratio: 2496 / 3007">
+          </div>
+          <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.5; opacity: 0.8;">Padme &amp; Zeus — Arepo Farms Co-CSOs&nbsp;</figcaption>
+        </figure>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px;">
+          <div style="border: 2px solid var(--line, #4a4453); border-radius: 20px; overflow: hidden; background: var(--t2, #b8f0bd); box-shadow: 6px 6px 0 var(--line, #4a4453);">
+            <img src="uploads/IMG_5300.JPEG" alt="Goats and spring kids in the pasture" style="display: block; width: 100%; height: 330px; object-fit: cover;">
+          </div>
+          <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.5; opacity: 0.8;">Jerry, Venus, Tommy - Professional Goats</figcaption>
+        </figure>
+        
+      </div>
+    </section>
+
+    <footer style="border-top: 2px solid var(--line, #4a4453); padding: 34px 0 48px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">Let's talk data, or goats.</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; opacity: 0.78;">Boston, MA · 617-503-7939</span>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="mailto:Evan.a.wacks@gmail.com" style="padding: 13px 22px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--t3, #f9aeae); font-weight: 600;">Evan.a.wacks@gmail.com</a>
+        <a href="https://www.linkedin.com/in/evan-wacks/" style="padding: 13px 22px; border: 2px solid var(--line, #4a4453); border-radius: 999px; background: var(--surface, #fff6fc); font-weight: 600;">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;colorScheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Duck Blue&quot;,&quot;Bubblegum&quot;,&quot;Lemonade&quot;,&quot;Pond Mint&quot;],&quot;default&quot;:&quot;Duck Blue&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;headlineStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Marker: blue / green / pink&quot;,&quot;Marker warm: yellow / coral / blue&quot;,&quot;Teal 'Data'&quot;,&quot;Teal 'Great Insights'&quot;,&quot;Two-tone: teal + plum&quot;,&quot;Plain&quot;],&quot;default&quot;:&quot;Marker: blue / green / pink&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Headline&quot;}}">
+const SCHEMES = {
+  "Bubblegum": { bg: "#fbc4f4", surface: "#fff6fc", ink: "#3f3546", line: "#4a4453", t1: "#9fe9f4", t2: "#b8f0bd", t3: "#f9aeae" },
+  "Lemonade": { bg: "#fbe27a", surface: "#fffaea", ink: "#41382c", line: "#4a4453", t1: "#f9aeae", t2: "#b8f0bd", t3: "#9fe9f4" },
+  "Pond Mint": { bg: "#b9efc4", surface: "#f6fff8", ink: "#2f3f36", line: "#4a4453", t1: "#9fe9f4", t2: "#fbc4f4", t3: "#fbe27a" },
+  "Duck Blue": { bg: "#a8e9f5", surface: "#f2fdff", ink: "#2d3b44", line: "#4a4453", t1: "#fbc4f4", t2: "#fbe27a", t3: "#b8f0bd" },
+  "Mono": { bg: "#e9e9e9", surface: "#ffffff", ink: "#111111", line: "#111111", t1: "#d4d4d4", t2: "#c2c2c2", t3: "#aeaeae" }
+};
+
+// Original short piece in A minor: [start beat, midi, beats]
+const BEAT = 0.46;
+const NOTES = (() => {
+  const out = [];
+  const chords = [[57,60,64],[53,57,60],[55,59,62],[52,55,59],[57,60,64],[53,57,60],[50,53,57],[52,55,59]];
+  const melody = [76,74,72,69,72,74,76,79,77,76,74,72,71,72,74,76,72,71,69,67,69,71,72,74,76,79,81,79,77,76,74,72];
+  chords.forEach((ch, bar) => {
+    const t = bar * 4;
+    ch.concat([ch[0] + 12]).forEach((n, i) => out.push([t + i * 0.5, n - 12, 1.6, 0.5]));
+    out.push([t + 2, ch[1], 1.4, 0.34]);
+    out.push([t + 3, ch[2], 1.2, 0.34]);
+  });
+  melody.forEach((n, i) => out.push([i, n, i % 4 === 3 ? 1.1 : 0.9, 0.62]));
+  // second pass, octave-shifted tail
+  melody.slice(0, 16).forEach((n, i) => out.push([32 + i, n - 12, 1.0, 0.5]));
+  chords.slice(0, 4).forEach((ch, bar) => {
+    const t = 32 + bar * 4;
+    ch.forEach((n, i) => out.push([t + i * 0.75, n, 2.2, 0.42]));
+  });
+  out.push([48, 57, 4, 0.55], [48, 60, 4, 0.4], [48, 64, 4, 0.4], [48, 69, 4, 0.5]);
+  return out.sort((a, b) => a[0] - b[0]);
+})();
+const DURATION = 52 * BEAT;
+
+class Component extends DCLogic {
+  state = { mode: "pro", playing: false, elapsed: 0, stage: 0, override: null, trackName: null, trackDur: 0 };
+  shatter(e) {
+    const header = e.currentTarget.closest("header, footer");
+    const root = header && header.parentElement && header.parentElement.parentElement;
+    if (!root) return;
+    const W = window.innerWidth, H = window.innerHeight, sy = window.scrollY;
+    const rr = root.getBoundingClientRect();
+    const cx = e.clientX || W * 0.8, cy = e.clientY || 60;
+    const R = Math.hypot(Math.max(cx, W - cx), Math.max(cy, H - cy)) * 1.6;
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const rays = 11, rings = [0, 70, 190, 380, R];
+    const angs = [];
+    for (let i = 0; i < rays; i++) angs.push((i + rnd(-0.3, 0.3)) / rays * Math.PI * 2);
+    const pt = (ai, ri) => {
+      const a = angs[ai % rays] + (ri && ri < rings.length - 1 ? rnd(-0.06, 0.06) : 0);
+      const r = rings[ri] * (ri && ri < rings.length - 1 ? rnd(0.85, 1.15) : 1);
+      return [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
+    };
+    const grid = rings.map((_, ri) => angs.map((_, ai) => pt(ai, ri)));
+    const overlay = document.createElement("div");
+    overlay.style.cssText = "position:fixed;inset:0;z-index:99999;pointer-events:none;overflow:hidden;";
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", W); svg.setAttribute("height", H);
+    svg.style.cssText = "position:absolute;inset:0;z-index:2;";
+    const shards = [];
+    for (let ri = 0; ri < rings.length - 1; ri++) {
+      for (let ai = 0; ai < rays; ai++) {
+        const n = (ai + 1) % rays;
+        const poly = ri === 0 ? [grid[0][0], grid[1][ai], grid[1][n]]
+          : [grid[ri][ai], grid[ri + 1][ai], grid[ri + 1][n], grid[ri][n]];
+        const wrap = document.createElement("div");
+        wrap.style.cssText = "position:absolute;inset:0;overflow:hidden;will-change:transform,opacity;clip-path:polygon(" + poly.map(p => p[0].toFixed(1) + "px " + p[1].toFixed(1) + "px").join(",") + ");";
+        const clone = root.cloneNode(true);
+        clone.style.position = "absolute";
+        clone.style.left = rr.left + "px";
+        clone.style.top = rr.top + "px";
+        clone.style.width = rr.width + "px";
+        clone.style.margin = "0";
+        wrap.appendChild(clone);
+        overlay.appendChild(wrap);
+        const mx = poly.reduce((s, p) => s + p[0], 0) / poly.length;
+        const my = poly.reduce((s, p) => s + p[1], 0) / poly.length;
+        shards.push({ wrap, mx, my, ri });
+        const path = document.createElementNS(svgNS, "polygon");
+        path.setAttribute("points", poly.map(p => p.join(",")).join(" "));
+        path.setAttribute("fill", "none");
+        path.setAttribute("stroke", "rgba(21,25,29,0.55)");
+        path.setAttribute("stroke-width", "1.2");
+        svg.appendChild(path);
+      }
+    }
+    const flash = document.createElement("div");
+    flash.style.cssText = "position:absolute;left:" + (cx - 60) + "px;top:" + (cy - 60) + "px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.95),rgba(255,255,255,0) 70%);z-index:3;";
+    overlay.appendChild(svg);
+    overlay.appendChild(flash);
+    document.body.appendChild(overlay);
+    flash.animate([{ opacity: 1, transform: "scale(0.4)" }, { opacity: 0, transform: "scale(1.8)" }], { duration: 350, easing: "ease-out", fill: "forwards" });
+    svg.animate([{ opacity: 0 }, { opacity: 1, offset: 0.15 }, { opacity: 1, offset: 0.6 }, { opacity: 0 }], { duration: 520, fill: "forwards" });
+    let maxEnd = 0;
+    shards.forEach(({ wrap, mx, my, ri }) => {
+      const dx = mx - cx, dy = my - cy, d = Math.hypot(dx, dy) || 1;
+      const push = rnd(40, 140) / (ri + 1);
+      const tx = dx / d * push + rnd(-30, 30);
+      const fall = H * rnd(0.9, 1.4) + (H - my);
+      const rot = rnd(-40, 40);
+      const delay = 180 + d * 0.35 + rnd(0, 120);
+      const dur = rnd(900, 1300);
+      maxEnd = Math.max(maxEnd, delay + dur);
+      wrap.animate([
+        { transform: "translate(0,0) rotate(0deg)", opacity: 1 },
+        { transform: "translate(" + (tx * 0.4) + "px," + (dy / d * push * 0.3) + "px) rotate(" + (rot * 0.1) + "deg)", opacity: 1, offset: 0.12 },
+        { transform: "translate(" + tx + "px," + fall + "px) rotate(" + rot + "deg)", opacity: 0.85 }
+      ], { duration: dur, delay, easing: "cubic-bezier(.45,0,.9,.55)", fill: "both" });
+    });
+    setTimeout(() => overlay.remove(), maxEnd + 100);
+  }
+  audioEl = null;
+  canvasRef = React.createRef();
+  wrapRef = React.createRef();
+
+  funWrapRef = React.createRef();
+  proRootRef = React.createRef();
+  componentDidMount() {
+    this.measureHero();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureHero());
+    this._onResize = () => { clearTimeout(this._rt); this._rt = setTimeout(() => this.measureHero(), 120); };
+    window.addEventListener("resize", this._onResize);
+    this.attachTrack("./didactic-diminishment.m4a", "Didactic Diminishment");
+    this.sizeCanvas();
+    this.ro = new ResizeObserver(() => this.sizeCanvas());
+    if (this.wrapRef.current) this.ro.observe(this.wrapRef.current);
+  }
+
+  componentDidUpdate() {
+    this.sizeCanvas();
+  }
+  measureHero() {
+    if (this.state.mode !== "pro" || this._measuring) return;
+    this._measuring = true;
+    const finish = (patch) => { if (!this._measuring) return; this._measuring = false; clearTimeout(this._mTimeout); this.setState(Object.assign({ measuring: false }, patch || {})); };
+    this._mTimeout = setTimeout(() => finish(), 1500);
+    const tryMeasure = (n) => {
+      const w = this.funWrapRef.current;
+      const img = w && w.querySelector('img[alt="img_4335-3"]');
+      if (!img) { if (n < 20) requestAnimationFrame(() => tryMeasure(n + 1)); else finish(); return; }
+      const a = img.getBoundingClientRect(), b = w.getBoundingClientRect();
+      finish({ heroRect: { left: a.left - b.left, top: a.top - b.top, width: a.width } });
+    };
+    this.setState({ measuring: true }, () => requestAnimationFrame(() => requestAnimationFrame(() => tryMeasure(0))));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._onResize);
+    this.stop();
+    (this.bt || []).forEach(clearTimeout);
+    if (this.ro) this.ro.disconnect();
+  }
+
+  sizeCanvas() {
+    const cv = this.canvasRef.current;
+    if (!cv) return;
+    const r = cv.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = Math.round(r.width * dpr), h = Math.round(r.height * dpr);
+    if (cv.width !== w || cv.height !== h) {
+      cv.width = w; cv.height = h;
+      const c = cv.getContext("2d");
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.c2d = c;
+      this.strokePaths = [];
+    } else if (!this.c2d) {
+      this.c2d = cv.getContext("2d");
+      this.c2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    this.needed = r.width * 0.9;
+  }
+
+  inkColor() {
+    const el = this.wrapRef.current;
+    return el ? getComputedStyle(el).color : "#3f3546";
+  }
+
+  clearScribble() {
+    const cv = this.canvasRef.current;
+    if (cv && this.c2d) this.c2d.clearRect(0, 0, cv.width, cv.height);
+    this.drawn = 0;
+    this.last = null;
+    this.drawing = false;
+  }
+
+  onDown(e) {
+    if (this.advancing) return;
+    this.sizeCanvas();
+    const cv = this.canvasRef.current;
+    cv.setPointerCapture(e.pointerId);
+    const r = cv.getBoundingClientRect();
+    this.drawing = true;
+    this.last = { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+
+  onMove(e) {
+    if (!this.drawing || !this.c2d) return;
+    const cv = this.canvasRef.current;
+    const r = cv.getBoundingClientRect();
+    const p = { x: e.clientX - r.left, y: e.clientY - r.top };
+    const c = this.c2d;
+    c.strokeStyle = this.inkColor();
+    c.lineWidth = 7;
+    c.lineCap = "round";
+    c.lineJoin = "round";
+    c.globalAlpha = 0.85;
+    c.beginPath();
+    c.moveTo(this.last.x, this.last.y);
+    c.lineTo(p.x, p.y);
+    c.stroke();
+    this.drawn = (this.drawn || 0) + Math.hypot(p.x - this.last.x, p.y - this.last.y);
+    this.last = p;
+    if (this.drawn > (this.needed || 900)) this.advance();
+  }
+
+  onUp() { this.drawing = false; this.last = null; }
+
+  advance() {
+    if (this.advancing) return;
+    this.advancing = true;
+    this.drawing = false;
+    if (this.state.stage >= 2) {
+      this.setState({ fading: true, override: "Mono" });
+      setTimeout(() => {
+        this.clearScribble();
+        this.advancing = false;
+        this.setState({ mode: "pro", stage: 0, override: null, fading: false });
+        window.scrollTo(0, 0);
+      }, 700);
+      return;
+    }
+    setTimeout(() => {
+      const next = Math.min(3, this.state.stage + 1);
+      this.clearScribble();
+      this.advancing = false;
+      this.setState({ stage: next, override: next === 3 ? "Mono" : null });
+    }, 420);
+  }
+
+  theme() {
+    const name = this.state.override || this.state.palette || this.props.colorScheme || "Duck Blue";
+    const s = SCHEMES[name] || SCHEMES["Bubblegum"];
+    const extra = this.state.override === "Mono" ? ";filter:grayscale(1)" : "";
+    const fade = ";transition:opacity 650ms ease;opacity:" + (this.state.fading ? 0 : 1);
+    const jostle = this.state.shake ? ";animation:ew-jostle 620ms ease-in-out 1" : "";
+    return Object.entries(s).map(([k, v]) => "--" + k + ":" + v).join(";") + extra + fade + jostle;
+  }
+
+  burst(name) {
+    this.setState({ palette: name });
+  }
+
+  burstStyle() {
+    const b = this.state.burst;
+    const base = "position:fixed;inset:0;z-index:60;pointer-events:none;background-repeat:no-repeat;" +
+      "background-size:contain;background-position:center;" +
+      "transition:transform 760ms cubic-bezier(.33,0,.2,1),opacity 620ms ease;";
+    if (!b) return base + "visibility:hidden;opacity:0;transform:scale(0.06)";
+    return base + "background-image:url(" + b.src + ");" +
+      "transform-origin:" + b.x + "px " + b.y + "px;transform:scale(" + b.scale + ");opacity:" + b.opacity;
+  }
+
+  attachTrack(url, label) {
+    const a = new Audio(url);
+    a.preload = "metadata";
+    a.onloadedmetadata = () => this.setState({ trackDur: a.duration || 0 });
+    a.onended = () => { this.stop(); this.setState({ playing: false, elapsed: 0 }); };
+    this.audioEl = a;
+    this.setState({ playing: false, elapsed: 0, trackName: label });
+  }
+
+  loadTrack(file) {
+    if (!file) return;
+    this.stop();
+    if (this.trackUrl) URL.revokeObjectURL(this.trackUrl);
+    this.trackUrl = URL.createObjectURL(file);
+    const a = new Audio(this.trackUrl);
+    a.preload = "metadata";
+    a.onloadedmetadata = () => this.setState({ trackDur: a.duration || 0 });
+    a.onended = () => { this.stop(); this.setState({ playing: false, elapsed: 0 }); };
+    this.audioEl = a;
+    this.setState({ playing: false, elapsed: 0, trackName: file.name });
+  }
+
+  ensureAnalyser() {
+    if (this.analyser || !this.audioEl) return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      const ac = new AC();
+      const src = ac.createMediaElementSource(this.audioEl);
+      const an = ac.createAnalyser();
+      an.fftSize = 2048;
+      an.smoothingTimeConstant = 0.72;
+      an.minDecibels = -82;
+      an.maxDecibels = -18;
+      this.binHz = ac.sampleRate / an.fftSize;
+      src.connect(an);
+      an.connect(ac.destination);
+      this.audioCtx = ac;
+      this.analyser = an;
+      this.freq = new Uint8Array(an.frequencyBinCount);
+    } catch (e) { this.analyser = null; }
+  }
+
+  playFile(fromStart) {
+    const a = this.audioEl;
+    this.ensureAnalyser();
+    if (this.audioCtx && this.audioCtx.state === "suspended") this.audioCtx.resume();
+    if (fromStart) a.currentTime = 0;
+    this.fadeStart = performance.now();
+    a.volume = 0;
+    a.play();
+    const tick = () => {
+      if (!this.audioEl) return;
+      const el = this.audioEl;
+      const t = el.currentTime, d = el.duration || 0;
+      if (this.analyser) {
+        this.analyser.getByteFrequencyData(this.freq);
+        const N = 22, fMin = 150, fMax = 2800, hz = this.binHz || 21.5;
+        const raw = [];
+        for (let i = 0; i < N; i++) {
+          const f0 = fMin * Math.pow(fMax / fMin, i / N);
+          const f1 = fMin * Math.pow(fMax / fMin, (i + 1) / N);
+          const k0 = Math.max(1, Math.round(f0 / hz));
+          const k1 = Math.max(k0 + 1, Math.round(f1 / hz));
+          let sum = 0, n = 0;
+          for (let k = k0; k < k1 && k < this.freq.length; k++) { sum += this.freq[k]; n++; }
+          const avg = n ? sum / n : 0;
+          // byte data is already dB-scaled; drop the noise floor and expand what's left
+          const floor = 0.3;
+          const norm = Math.max(0, (avg / 255 - floor) / (1 - floor));
+          raw.push(norm * (0.8 + 1.5 * (i / (N - 1))));
+        }
+        // slow AGC: aim for a peak near 0.85, but keep the gain in a narrow band
+        // so quiet passages stay short instead of being pumped to full height
+        const peak = Math.max(...raw);
+        this.peakEnv = Math.max(peak, (this.peakEnv || 0) * 0.985);
+        const gain = Math.max(0.7, Math.min(1.8, 0.85 / Math.max(0.12, this.peakEnv)));
+        this.levels = raw.map(v => Math.min(1, Math.pow(v * gain, 1.5)));
+      }
+      if (!this.fadingOut) {
+        const inV = Math.min(1, (performance.now() - (this.fadeStart || 0)) / 3000);
+        const outV = d ? Math.pow(Math.min(1, Math.max(0, (d - t) / 3)), 2.2) : 1;
+        el.volume = Math.max(0, Math.min(1, Math.min(inV, outV)));
+      }
+      this.setState({ elapsed: t });
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  fadeOutStop(done) {
+    const el = this.audioEl;
+    if (el && !el.paused) {
+      this.fadingOut = true;
+      const v0 = el.volume, t0 = performance.now();
+      const step = () => {
+        const k = (performance.now() - t0) / 2000;
+        if (k >= 1 || !this.audioEl) { this.fadingOut = false; this.stop(); done(); return; }
+        el.volume = Math.max(0, v0 * (1 - k));
+        this.fadeRaf = requestAnimationFrame(step);
+      };
+      this.fadeRaf = requestAnimationFrame(step);
+      return;
+    }
+    if (this.master && this.ctx) {
+      const now = this.ctx.currentTime;
+      try {
+        this.master.gain.cancelScheduledValues(now);
+        this.master.gain.setValueAtTime(this.master.gain.value, now);
+        this.master.gain.linearRampToValueAtTime(0.0001, now + 2);
+      } catch (e) {}
+      setTimeout(() => { this.stop(); done(); }, 2050);
+      return;
+    }
+    this.stop();
+    done();
+  }
+
+  stop() {
+    if (this.audioEl) { this.audioEl.pause(); }
+    if (this.fadeRaf) cancelAnimationFrame(this.fadeRaf);
+    this.fadingOut = false;
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.ctx) { try { this.ctx.close(); } catch (e) {} this.ctx = null; }
+    this.raf = null;
+  }
+
+  play() {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AC();
+    this.ctx = ctx;
+    const master = ctx.createGain();
+    this.master = master;
+    const verb = ctx.createConvolver();
+    const len = ctx.sampleRate * 1.6;
+    const buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) {
+      const d = buf.getChannelData(c);
+      for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.2);
+    }
+    verb.buffer = buf;
+    const wet = ctx.createGain(); wet.gain.value = 0.28;
+    master.connect(ctx.destination);
+    master.connect(verb); verb.connect(wet); wet.connect(ctx.destination);
+
+    const t0 = ctx.currentTime + 0.12;
+    master.gain.setValueAtTime(0.0001, t0);
+    master.gain.linearRampToValueAtTime(0.9, t0 + 3);
+    master.gain.setValueAtTime(0.9, t0 + Math.max(3.2, DURATION - 2));
+    master.gain.linearRampToValueAtTime(0.0001, t0 + DURATION);
+    NOTES.forEach(([beat, midi, beats, vel]) => {
+      const t = t0 + beat * BEAT;
+      const f = 440 * Math.pow(2, (midi - 69) / 12);
+      const dur = Math.max(0.5, beats * BEAT * 1.9);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vel * 0.22, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(vel * 0.06, t + 0.35);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      g.connect(master);
+      [[1, 1], [2, 0.32], [3, 0.14], [4, 0.07]].forEach(([mult, amp]) => {
+        const o = ctx.createOscillator();
+        o.type = mult === 1 ? "triangle" : "sine";
+        o.frequency.value = f * mult;
+        const og = ctx.createGain();
+        og.gain.value = amp;
+        o.connect(og); og.connect(g);
+        o.start(t); o.stop(t + dur + 0.05);
+      });
+    });
+
+    const tick = () => {
+      if (!this.ctx) return;
+      const e = Math.min(DURATION, this.ctx.currentTime - t0 + 0.12);
+      this.setState({ elapsed: Math.max(0, e) });
+      if (e >= DURATION) { this.stop(); this.setState({ playing: false, elapsed: 0 }); return; }
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  fmt(s) {
+    const m = Math.floor(s / 60), r = Math.floor(s % 60);
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  renderVals() {
+    const { playing, elapsed } = this.state;
+    const totalDur = this.state.trackName ? (this.state.trackDur || 0) : DURATION;
+    const pct = totalDur ? Math.min(1, elapsed / totalDur) : 0;
+    const lv = this.levels || [];
+    const bars = Array.from({ length: 22 }, (_, i) => {
+      const base = 26 + Math.abs(Math.sin(i * 1.1)) * 52;
+      const live = lv[i];
+      const h = playing
+        ? (live !== undefined ? 5 + live * 95 : base * (0.45 + (Math.sin(elapsed * 3.1 + i * 0.7) * 0.5 + 0.5) * 0.85))
+        : base * 0.35;
+      return React.createElement("div", {
+        key: i,
+        style: {
+          flex: 1,
+          height: Math.max(8, Math.round(h)) + "%",
+          border: "2px solid var(--line, #4a4453)",
+          borderRadius: "5px",
+          background: ["var(--t1, #9fe9f4)", "var(--t3, #f9aeae)", "var(--bg, #fbc4f4)"][i % 3],
+          transition: "height 90ms linear"
+        }
+      });
+    });
+    const stage = this.state.stage;
+    const fun = this.state.mode === "fun";
+    const hsRaw = String(this.props.headlineStyle || "");
+    const hs = /warm|yellow/i.test(hsRaw) ? "marker-warm"
+      : /marker/i.test(hsRaw) ? "marker"
+      : /two-tone/i.test(hsRaw) ? "two-tone"
+      : /teal 'data'|teal data/i.test(hsRaw) ? "teal-data"
+      : /insights/i.test(hsRaw) ? "teal-insights"
+      : /plain/i.test(hsRaw) ? "plain"
+      : "marker";
+    const { trackName, trackDur } = this.state;
+    const total = trackName ? (trackDur || 0) : DURATION;
+    return {
+      uploadLabel: trackName ? ("♪ " + trackName + " — replace") : "Upload a recording",
+      trackTitle: trackName || "",
+      onPickAudio: (e) => {
+        const f = e.target.files && e.target.files[0];
+        this.loadTrack(f);
+        e.target.value = "";
+      },
+      theme: this.theme(),
+      pickDuckBlue: () => this.burst("Duck Blue"),
+      pickBubblegum: () => this.burst("Bubblegum"),
+      pickLemonade: () => this.burst("Lemonade"),
+      pickPondMint: () => this.burst("Pond Mint"),
+      showBurst: !!this.state.burst,
+      burstStyle: this.burstStyle(),
+      isHeadPlain: hs === "plain",
+      isHeadTealData: hs === "teal-data",
+      isHeadTealInsights: hs === "teal-insights",
+      isHeadMarkBlue: hs === "marker",
+      isHeadMarkYellow: hs === "marker-warm",
+      isHeadTwoTone: hs === "two-tone",
+      isPro: !fun,
+      isFun: fun || !!this.state.measuring,
+      funWrapRef: this.funWrapRef,
+      proRootRef: this.proRootRef,
+      funWrapStyle: (!fun && this.state.measuring) ? { position: "absolute", top: 0, left: 0, right: 0, visibility: "hidden", pointerEvents: "none" } : {},
+      proPhotoStyle: this.state.heroRect
+        ? { position: "absolute", left: this.state.heroRect.left + "px", top: this.state.heroRect.top + "px", width: this.state.heroRect.width + "px" }
+        : { paddingTop: "48px" },
+      toggleMode: (e) => {
+        if (!fun && e && e.currentTarget) this.shatter(e);
+        this.clearScribble();
+        this.setState({ mode: fun ? "pro" : "fun", stage: 0, override: null });
+        window.scrollTo(0, 0);
+      },
+      wrapRef: this.wrapRef,
+      canvasRef: this.canvasRef,
+      isStage0: stage === 0,
+      isStage1: stage === 1,
+      isStage2: stage === 2,
+      isStage3: stage === 3,
+      showHint: stage < 3,
+      onDown: (e) => this.onDown(e),
+      onMove: (e) => this.onMove(e),
+      onUp: () => this.onUp(),
+      revert: () => {
+        this.clearScribble();
+        this.setState({ stage: 0, override: null });
+      },
+      bars,
+      playGlyph: playing ? "❚❚" : "▶",
+      playLabel: playing ? "Pause the piece" : "Play the piece",
+      progressPct: (pct * 100).toFixed(1) + "%",
+      elapsedLabel: this.fmt(elapsed),
+      totalLabel: this.fmt(total),
+      togglePlay: () => {
+        if (this.state.playing) {
+          this.fadeOutStop(() => this.setState({ playing: false, elapsed: 0 }));
+          return;
+        }
+        if (this.audioEl) this.playFile(true); else this.play();
+        this.setState({ playing: true, elapsed: 0 });
+      },
+      showTransport: !!this.state.trackName,
+      transportGlyph: playing ? "❚❚" : "▶",
+      transportLabel: playing ? "Pause" : "Play",
+      transportTitle: this.state.trackName || "",
+      transportTime: this.fmt(elapsed) + " / " + this.fmt(totalDur),
+      transportToggle: () => {
+        const el = this.audioEl;
+        if (!el) return;
+        if (this.state.playing) {
+          if (this.fadeRaf) cancelAnimationFrame(this.fadeRaf);
+          this.fadingOut = false;
+          if (this.raf) cancelAnimationFrame(this.raf);
+          this.raf = null;
+          el.pause();
+          this.setState({ playing: false });
+        } else {
+          this.playFile(false);
+          this.setState({ playing: true });
+        }
+      },
+      seekBack: () => {
+        const el = this.audioEl;
+        if (!el) return;
+        el.currentTime = Math.max(0, el.currentTime - 15);
+        this.setState({ elapsed: el.currentTime });
+      },
+      seekFwd: () => {
+        const el = this.audioEl;
+        if (!el) return;
+        el.currentTime = Math.min((el.duration || 0), el.currentTime + 15);
+        this.setState({ elapsed: el.currentTime });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
