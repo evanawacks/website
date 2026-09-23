@@ -13,8 +13,12 @@ The local copy of this repo lives at `~/Desktop/website`. Changes made there are
 
 | Path | What it is |
 |---|---|
-| `index.html` | **The live website.** A self-contained file (all images, fonts, audio and code are bundled inside), so it's the only file GitHub Pages needs. |
-| `design_handoff_evan_wacks_site/` | The design handoff: the source prototype (`Evan Wacks.dc.html`), original photos/audio, and a detailed spec in its own `README.md`. Kept for reference and for a future rebuild; the live site doesn't load anything from here. |
+| `site/` | **The website** (Vite + React): page code in `site/*.tsx`, compressed photos and the piano recording in `site/public/assets/`. |
+| `src/` | The site's component library (`wacks-ui`): Pro and Fun components plus their styles and tokens. |
+| `.github/workflows/deploy.yml` | Builds `site/` and publishes it to GitHub Pages on every push to `main`. |
+| `.design-sync/` | Config, previews and notes for syncing the component library to Claude Design. |
+| `index.html` | The old single-file prototype. No longer served once Pages uses GitHub Actions (section 2). |
+| `design_handoff_evan_wacks_site/` | The design handoff: the source prototype (`Evan Wacks.dc.html`), original photos/audio, and a detailed spec in its own `README.md`. Kept for reference; the live site doesn't load anything from here. |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is (no Jekyll processing). |
 | `.gitignore` | Keeps macOS junk like `.DS_Store` out of the repo. |
 
@@ -22,16 +26,16 @@ The local copy of this repo lives at `~/Desktop/website`. Changes made there are
 
 ## 1. Preview the site on your computer
 
-Easiest: double-click `index.html` and it opens in your browser.
-
-If something (like the audio player) doesn't behave when opened as a file, run a tiny local server instead. In Terminal:
+Needs Node 22 (installed at `~/.local/node` on this Mac). In Terminal:
 
 ```bash
 cd ~/Desktop/website
-python3 -m http.server 8000
+export PATH=~/.local/node/bin:$PATH
+npm install      # first time only
+npm run dev
 ```
 
-Then open http://localhost:8000. Press `Ctrl + C` in Terminal to stop it.
+Then open the address it prints (usually http://localhost:5173). Press `Ctrl + C` to stop it.
 
 ---
 
@@ -40,10 +44,9 @@ Then open http://localhost:8000. Press `Ctrl + C` in Terminal to stop it.
 1. Go to https://github.com/evanawacks/website and sign in.
 2. Click **Settings** (top of the repo) → **Pages** (left sidebar).
 3. Under **Build and deployment**:
-   - **Source:** `Deploy from a branch`
-   - **Branch:** `main`, folder `/ (root)`, then click **Save**.
+   - **Source:** `GitHub Actions` (the workflow in `.github/workflows/deploy.yml` builds and publishes the site).
 4. Wait 1–2 minutes and refresh the Pages settings page. A banner appears: *"Your site is live at https://evanawacks.github.io/website/"*.
-5. You can watch each deploy under the repo's **Actions** tab ("pages build and deployment"). A green check means it's live.
+5. You can watch each deploy under the repo's **Actions** tab ("Deploy site to GitHub Pages"). A green check means it's live.
 
 > **Heads-up:** GitHub Pages is free only for **public** repos on a free GitHub plan. If the repo is private, either make it public (Settings → General → Danger Zone → Change visibility) or upgrade to GitHub Pro.
 
