@@ -1,0 +1,81 @@
+/*
+ * wacks-ui design tokens.
+ * Pro mode uses the --ew-* palette (white, editorial).
+ * Fun mode uses the --fun-* palette, re-pointed per scheme by [data-fun-scheme]
+ * (set by <FunTheme scheme="...">). Duck Blue is the default scheme.
+ */
+:root {
+  /* type families */
+  --ew-font-serif: "Newsreader", Georgia, serif;
+  --ew-font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --ew-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --ew-font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --ew-font-headline: Arial, Helvetica, sans-serif;
+
+  /* pro palette */
+  --ew-paper: #ffffff;
+  --ew-ink: #15191d;
+  --ew-body: #4b5560;
+  --ew-muted: #78838f;
+  --ew-muted-2: #8b959f;
+  --ew-rule: #e7eaee;
+  --ew-rule-2: #eef1f4;
+  --ew-chip-border: #e0e5ea;
+  --ew-underline: #c9d0d8;
+  --ew-underline-2: #d7dde3;
+  --ew-teal: #0f6d80;
+  --ew-plum: #8a2f7a;
+
+  /* marker highlight colors (pro headline) */
+  --ew-mark-blue: #a8e9f5;
+  --ew-mark-green: #b8f0bd;
+  --ew-mark-pink: #fbc4f4;
+  --ew-mark-yellow: #fbe27a;
+  --ew-mark-coral: #f9aeae;
+
+  /* pro radii */
+  --ew-radius-xs: 3px;
+  --ew-radius-sm: 4px;
+  --ew-radius-md: 6px;
+
+  /* fun palette: Duck Blue (default) */
+  --fun-bg: #a8e9f5;
+  --fun-surface: #f2fdff;
+  --fun-ink: #2d3b44;
+  --fun-line: #4a4453;
+  --fun-t1: #fbc4f4;
+  --fun-t2: #fbe27a;
+  --fun-t3: #b8f0bd;
+
+  /* fun radii + hard shadows */
+  --fun-radius-tile: 9px;
+  --fun-radius-swatch: 12px;
+  --fun-radius-card: 20px;
+  --fun-radius-plate: 22px;
+  --fun-radius-panel: 26px;
+  --fun-radius-pill: 999px;
+  --fun-shadow-sm: 4px 4px 0 var(--fun-line);
+  --fun-shadow-md: 6px 6px 0 var(--fun-line);
+  --fun-shadow-lg: 8px 8px 0 var(--fun-line);
+}
+
+[data-fun-scheme="duck-blue"] {
+  --fun-bg: #a8e9f5; --fun-surface: #f2fdff; --fun-ink: #2d3b44; --fun-line: #4a4453;
+  --fun-t1: #fbc4f4; --fun-t2: #fbe27a; --fun-t3: #b8f0bd;
+}
+[data-fun-scheme="bubblegum"] {
+  --fun-bg: #fbc4f4; --fun-surface: #fff6fc; --fun-ink: #3f3546; --fun-line: #4a4453;
+  --fun-t1: #9fe9f4; --fun-t2: #b8f0bd; --fun-t3: #f9aeae;
+}
+[data-fun-scheme="lemonade"] {
+  --fun-bg: #fbe27a; --fun-surface: #fffaea; --fun-ink: #41382c; --fun-line: #4a4453;
+  --fun-t1: #f9aeae; --fun-t2: #b8f0bd; --fun-t3: #9fe9f4;
+}
+[data-fun-scheme="pond-mint"] {
+  --fun-bg: #b9efc4; --fun-surface: #f6fff8; --fun-ink: #2f3f36; --fun-line: #4a4453;
+  --fun-t1: #9fe9f4; --fun-t2: #fbc4f4; --fun-t3: #fbe27a;
+}
+[data-fun-scheme="mono"] {
+  --fun-bg: #e9e9e9; --fun-surface: #ffffff; --fun-ink: #111111; --fun-line: #111111;
+  --fun-t1: #d4d4d4; --fun-t2: #c2c2c2; --fun-t3: #aeaeae;
+}
