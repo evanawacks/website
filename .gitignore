@@ -6,6 +6,14 @@
 .vscode/
 .idea/
 
-# Build output (for a future Vite/Astro rebuild)
+# Build output
 node_modules/
 dist/
+dist-site/
+
+# design-sync: staged scripts, generated bundle, machine state
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules

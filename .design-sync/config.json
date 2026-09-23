@@ -1,0 +1,41 @@
+{
+  "shape": "package",
+  "pkg": "wacks-ui",
+  "globalName": "WacksUI",
+  "buildCmd": "npm run build:lib",
+  "cssEntry": "dist/wacks-ui.css",
+  "componentSrcMap": {
+    "AudioProvider": null,
+    "Credentials": "src/components/pro/RoleList.tsx",
+    "ProGallery": "src/components/pro/ProPhoto.tsx",
+    "ProText": "src/components/pro/ProSection.tsx",
+    "FunFigure": "src/components/fun/FunPhoto.tsx",
+    "FunPhotoCard": "src/components/fun/FunPhoto.tsx",
+    "FunGlyph": "src/components/fun/FunCard.tsx",
+    "FunGrid": "src/components/fun/FunCard.tsx",
+    "FunHeading": "src/components/fun/FunType.tsx",
+    "FunHeadline": "src/components/fun/FunType.tsx",
+    "FunText": "src/components/fun/FunType.tsx",
+    "FunPianoPanel": "src/components/fun/Piano.tsx",
+    "PianoKeys": "src/components/fun/Piano.tsx",
+    "Visualizer": "src/components/fun/Piano.tsx"
+  },
+  "overrides": {
+    "FunPianoPanel": {
+      "cardMode": "column"
+    },
+    "Highlight": {
+      "cardMode": "column"
+    },
+    "ProHeadline": {
+      "cardMode": "column"
+    },
+    "ProSection": {
+      "cardMode": "column"
+    },
+    "Transport": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

@@ -1,0 +1,32 @@
+import { FunPage, FunPianoPanel, FunPill } from "wacks-ui";
+
+const LEVELS = [0.35, 0.5, 0.62, 0.8, 0.7, 0.55, 0.9, 0.66, 0.48, 0.72, 0.84, 0.6, 0.42, 0.58, 0.76, 0.5, 0.38, 0.64, 0.52, 0.44, 0.3, 0.26];
+
+export const Idle = () => (
+  <FunPage scheme="duck-blue">
+    <div style={{ padding: "28px 0" }}>
+      <FunPianoPanel
+        badge={<FunPill>Composition</FunPill>}
+        title="A piece I can never play twice"
+        text="I don't know how to read or write music. Those all are a-minor inconvenience and I don't let them stop me."
+        duration={207}
+      />
+    </div>
+  </FunPage>
+);
+
+export const Playing = () => (
+  <FunPage scheme="bubblegum">
+    <div style={{ padding: "28px 0" }}>
+      <FunPianoPanel
+        badge={<FunPill>Composition</FunPill>}
+        title="A piece I can never play twice"
+        text="I don't know how to read or write music. Those all are a-minor inconvenience and I don't let them stop me."
+        playing
+        elapsed={74}
+        duration={207}
+        levels={LEVELS}
+      />
+    </div>
+  </FunPage>
+);
