@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { cx } from "../../utils";
 import type { FunTone } from "./FunButton";
+import { ChipRow } from "../shared/ChipRow";
 
 export interface FunCardProps {
   /** Card fill from the active scheme. Default "surface". */
@@ -16,10 +17,12 @@ export interface FunCardProps {
   meta?: ReactNode;
   /** Body copy (15px/1.55). */
   children?: ReactNode;
+  /** Tools or skills shown as outlined mono chips at the bottom of the card. */
+  tags?: string[];
 }
 
 /** Outlined pastel card (2px line, 20px radius, 26px padding). Lay several out in a `<FunGrid>`. */
-export function FunCard({ tone = "surface", shadow = "none", icon, eyebrow, title, meta, children }: FunCardProps) {
+export function FunCard({ tone = "surface", shadow = "none", icon, eyebrow, title, meta, children, tags }: FunCardProps) {
   return (
     <div
       className={cx(
@@ -34,6 +37,7 @@ export function FunCard({ tone = "surface", shadow = "none", icon, eyebrow, titl
       {title != null && <h3 className="ew-fun-card__title">{title}</h3>}
       {meta != null && <span className="ew-fun-card__meta">{meta}</span>}
       {children != null && <p className="ew-fun-card__body">{children}</p>}
+      {tags && tags.length > 0 && <ChipRow tone="fun" items={tags} />}
     </div>
   );
 }

@@ -119,6 +119,7 @@ a.ew-pro-btn--solid:hover, a.ew-pro-btn--outline:hover { text-decoration: none; 
 .ew-pro-entry__org { font-size: 14.5px; color: var(--ew-muted); }
 .ew-pro-entry__text { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--ew-body); max-width: 62ch; }
 .ew-pro-entry--dated .ew-pro-entry__text { max-width: 60ch; }
+.ew-pro-entry .ew-chip-row { padding-top: 6px; }
 
 /* chips */
 .ew-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }

@@ -156,12 +156,12 @@ export function FunSite(props: FunSiteProps) {
 
       <FunSection id="before" title="Four years at Wesleyan." headingSize="md" headingMaxCh={24} badge={<FunPill>2021 — 2025</FunPill>} spaceAfter={86}>
         <FunGrid min={260}>
-          <FunCard tone="t1" shadow="md" eyebrow="Jan 2023 — May 2025" title="Head Teaching Assistant" meta="Wesleyan Quantitative Analysis Center">
+          <FunCard tone="t1" shadow="md" eyebrow="Jan 2023 — May 2025" title="Head Teaching Assistant" meta="Wesleyan Quantitative Analysis Center" tags={["Python", "RStudio", "Stata"]}>
             Trepidation best describes how I felt walking into my first data class. If I let that fear live, I wouldn't have had the privilege of
             mentoring 52 students over nine semesters, helping them explore their interests and discovering a passion for data they never knew
             they had.
           </FunCard>
-          <FunCard tone="t2" shadow="md" eyebrow="Sept 2023 — May 2025" title="Immigration Research Assistant" meta="Wesleyan Cultural Psychology Research Lab">
+          <FunCard tone="t2" shadow="md" eyebrow="Sept 2023 — May 2025" title="Immigration Research Assistant" meta="Wesleyan Cultural Psychology Research Lab" tags={["Qualtrics", "Python", "RStudio"]}>
             I told Prof. Perez I never wanted to conduct research. He recruited me anyway. I got to design a study, write a survey, distribute it
             to hundreds of Americans, perform MANOVAs, then present on it. I'm incredibly grateful for him inviting me to the world of research.
             It gave me an appreciation for experimental and observational studies otherwise unobtainable through solving problem sets and

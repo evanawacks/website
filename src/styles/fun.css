@@ -142,6 +142,8 @@
 .ew-fun-card__meta { font-size: 14px; opacity: 0.8; }
 .ew-fun-card__body { margin: 0; font-size: 15px; line-height: 1.55; opacity: 0.82; }
 .ew-fun-card--eyebrow .ew-fun-card__body { opacity: 0.85; }
+.ew-fun-card .ew-fun-chip-row { gap: 8px; margin-top: auto; padding-top: 4px; }
+.ew-fun-card .ew-fun-chip { font-size: 12px; padding: 6px 12px; }
 .ew-fun-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 
 /* glyph tiles (card icons) */

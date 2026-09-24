@@ -115,10 +115,10 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
           <br />
           Now I go back as a consultant to help other students take on the challenge, where they explore their passion for data science.
         </ProEntry>
-        <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center">
+        <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center" tags={["Python", "RStudio", "Stata"]}>
           Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.
         </ProEntry>
-        <ProEntry date="Sept 2023 — May 2025" title="Immigration Research Assistant" org="Cultural Psychology Research Lab">
+        <ProEntry date="Sept 2023 — May 2025" title="Immigration Research Assistant" org="Cultural Psychology Research Lab" tags={["Qualtrics", "Python", "RStudio"]}>
           I worked with Dr. Michael Perez to design a study on immigration sentiment.
           <br />
           We sent it to a panel of 342 respondents, performed MANOVAs, graphed the data, and presented the findings to peers and professors
