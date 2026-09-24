@@ -134,7 +134,7 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
         </div>
       </ProSection>
 
-      <ProSection id="p-life" title="Outside work" label="Arepo Farms, NH">
+      <ProSection id="p-life" title="Outside work" label="Arepo Farm, NH">
         <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
           <ProText>
             Goat farming in New Hampshire, black diamond skiing in the Adirondacks, hiking in Maine, kayaking on the Charles. I can't recall
