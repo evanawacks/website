@@ -207,7 +207,7 @@ export function FunSite(props: FunSiteProps) {
         gap={30}
       >
         <FunGrid min={280} gap={22}>
-          <FunFigure src={asset("padme-zeus.webp")} alt="Padme and Zeus" height={330} objectPosition="center 42%" caption="Padme & Zeus — Arepo Farm Co-CSOs" />
+          <FunFigure src={asset("padme-zeus.webp")} alt="Padme and Zeus" height={330} objectPosition="center 42%" caption="Padme & Zeus — Arepo Farm, Co-CSOs" />
           <FunFigure src={asset("goats.webp")} alt="Goats and spring kids in the pasture" tone="t2" height={330} caption="Jerry, Venus, Tommy — Arepo Farm, Professional Goats" />
         </FunGrid>
       </FunSection>
