@@ -15,7 +15,7 @@ export const Hero = () => (
         </ScribbleHeadline>
       }
       hint={<FunPill variant="hint">Not a fan of haikus? Scratch it out.</FunPill>}
-      text="Data mercenary by day, piano-man by night. Goat farming in New Hampshire, skiing in the Adirondacks, hiking in Maine."
+      text="Data mercenary by day, piano man by night. Goat farming in New Hampshire, skiing in the Adirondacks, hiking in Maine."
       meta="Wesleyan University, Class of 2025"
       actions={
         <>

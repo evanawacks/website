@@ -4,7 +4,7 @@ const Body = () => (
   <div style={{ padding: "28px 0", display: "flex", flexDirection: "column", gap: 16, alignItems: "flex-start" }}>
     <FunPill>Boston, MA · Data Scientist</FunPill>
     <FunHeading size="lg">Let's talk data, or goats.</FunHeading>
-    <FunText>Data mercenary by day, piano-man by night.</FunText>
+    <FunText>Data mercenary by day, piano man by night.</FunText>
     <FunButton tone="t1" raised>What I do</FunButton>
   </div>
 );

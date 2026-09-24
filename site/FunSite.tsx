@@ -102,7 +102,7 @@ export function FunTop({ scheme, stage, onScheme, onScratched, onRevert, onPro }
             <FunPill variant="hint">{s.hint}</FunPill>
           )
         }
-        text={"Data mercenary by day, piano-man by night.\u00a0 Goat farming in New Hampshire, skiing in the Adirondacks, hiking in Maine, kayaking on the Charles in Boston. Spending time with friends and family in such beautiful environments."}
+        text={"Data mercenary by day, piano man by night.\u00a0 Goat farming in New Hampshire, skiing in the Adirondacks, hiking in Maine, kayaking on the Charles in Boston. Spending time with friends and family in such beautiful environments."}
         meta={
           <>
             Wesleyan University, Class of 2025
@@ -147,7 +147,7 @@ export function FunSite(props: FunSiteProps) {
             bespoke marketing and sales data infrastructure led to $20k/yr and 1,000+/hrs a year of time in savings.
           </FunCard>
           <FunCard icon={<FunGlyph kind="bars" />} title="Data Visualization">
-            The draft graphs I craft might be head scratchers, but putting in the time is always worth it. A polished (Looker) dashboard means
+            The draft graphs I craft might be head-scratchers, but putting in the time is always worth it. A polished (Looker) dashboard means
             leadership gets the point quickly, leading to massive savings on expensive dandruff shampoos.
           </FunCard>
         </FunGrid>
