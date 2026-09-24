@@ -17,8 +17,7 @@ export const Dated = () => (
   <ProPage>
     <div style={{ padding: "24px 0", maxWidth: 680 }}>
       <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center">
-        Managed 15 TAs and mentored 52 students over nine semesters — modeling, visualization, methodology, and the harder part: saying what
-        the data means.
+        Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.
       </ProEntry>
       <ProEntry date="Sept 2023 — May 2025" title="Immigration Research Assistant" org="Cultural Psychology Research Lab">
         Designed a study on immigration sentiment, ran MANOVAs on 342 responses and presented the findings.

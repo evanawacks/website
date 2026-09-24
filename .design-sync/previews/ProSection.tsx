@@ -39,7 +39,7 @@ export const DatedEntries = () => (
       aside={<Credentials items={["Bachelor of Arts", "Psychology major", "Certificate in Applied Data Science"]} />}
     >
       <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center">
-        Managed 15 TAs and mentored 52 students over nine semesters — modeling, visualization, methodology.
+        Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.
       </ProEntry>
       <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan">
         Now I go back every year to help other students take on the hackathon.
