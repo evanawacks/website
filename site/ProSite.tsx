@@ -89,7 +89,7 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
           Every dollar accounted for and put to good use.
         </ProEntry>
         <ProEntry title="Data infrastructure">
-          I engineered a custom marketing and sales database on Google Cloud.
+          I engineered a custom marketing and sales database on GCP.
           <br />
           Data refreshes live data across the organization.
           <br />

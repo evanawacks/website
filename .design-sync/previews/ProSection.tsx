@@ -22,7 +22,7 @@ export const WorkHistory = () => (
         audiences to boost performance.
       </ProEntry>
       <ProEntry title="Data infrastructure">
-        I engineered a custom marketing and sales database on Google Cloud. Over $20k and 1,000 hours saved per year.
+        I engineered a custom marketing and sales database on GCP. Over $20k and 1,000 hours saved per year.
       </ProEntry>
       <ChipRow items={["Python", "SQL", "R", "Google Cloud", "Looker Studio"]} />
     </ProSection>
