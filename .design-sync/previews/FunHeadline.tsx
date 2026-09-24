@@ -8,7 +8,7 @@ export const Haiku = () => (
         <br />
         The world is 1s and 0s
         <br />
-        Life is far more
+        Life is far deeper
       </FunHeadline>
     </div>
   </FunPage>

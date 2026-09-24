@@ -11,7 +11,7 @@ export const Hero = () => (
           <br />
           The world is 1s and 0s
           <br />
-          Life is far more
+          Life is far deeper
         </ScribbleHeadline>
       }
       hint={<FunPill variant="hint">Not a fan of haikus? Scratch it out.</FunPill>}

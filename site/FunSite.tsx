@@ -41,7 +41,7 @@ const STAGES: Record<Stage, { size: "lg" | "md" | "sm"; text: ReactNode; hint: s
         <br />
         The world is 1s and 0s
         <br />
-        Life is far more
+        Life is far deeper
       </>
     ),
     hint: "Not a fan of haikus? Scratch it out.",
