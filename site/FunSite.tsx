@@ -172,6 +172,7 @@ export function FunSite(props: FunSiteProps) {
             shadow="md"
             eyebrow="2025 - Present"
             title="Statistical Consultant"
+            tags={["Python", "RStudio", "Stata"]}
             meta={<span style={{ fontWeight: 600 }}>American Statistical Association DataFest @ Wesleyan</span>}
           >
             After losing the previous year, my team won DataFest in 2024. I realized I loved two elements the most, learning from my previous

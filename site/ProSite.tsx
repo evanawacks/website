@@ -110,7 +110,7 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
         label="2021 — 2025"
         aside={<Credentials items={["Bachelor of Arts", "Psychology major", "Certificate in Applied Data Science"]} />}
       >
-        <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan">
+        <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan" tags={["Python", "RStudio", "Stata"]}>
           In 2024, my team won DataFest, a 48-hour hackathon.
           <br />
           Now I go back as a consultant to help other students take on the challenge, where they explore their passion for data science.
