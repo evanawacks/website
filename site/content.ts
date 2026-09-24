@@ -1,7 +1,7 @@
 export const EMAIL = "Evan.a.wacks@gmail.com";
 export const LINKEDIN = "https://www.linkedin.com/in/evan-wacks/";
 export const PHONE_LINE = "Boston, MA · 617-503-7939";
-export const SKILLS = ["Python", "SQL", "RStudio", "Google Cloud Platform", "Looker Studio", "GitHub"];
+export const SKILLS = ["Google Cloud Platform", "SQL", "Looker Studio", "Python", "GitHub", "RStudio"];
 
 export const asset = (name: string) => `./assets/${name}`;
 export const DISCLAIMER =
