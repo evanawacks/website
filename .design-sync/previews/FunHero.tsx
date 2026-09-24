@@ -4,7 +4,7 @@ import acadia from "./_assets/acadia.webp";
 export const Hero = () => (
   <FunPage scheme="duck-blue">
     <FunHero
-      badge={<FunPill>Boston, MA · data Scientist</FunPill>}
+      badge={<FunPill>Boston, MA · Data Scientist</FunPill>}
       headline={
         <ScribbleHeadline size="lg">
           Data oh Data

@@ -84,7 +84,7 @@ export function FunTop({ scheme, stage, onScheme, onScratched, onRevert, onPro }
       </FunHeader>
 
       <FunHero
-        badge={<FunPill>Boston, MA · data Scientist</FunPill>}
+        badge={<FunPill>Boston, MA · Data Scientist</FunPill>}
         headline={
           <ScribbleHeadline key={stage} size={s.size} onScratched={onScratched} delay={stage >= 2 ? 0 : 420}>
             {s.text}
