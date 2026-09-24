@@ -113,7 +113,7 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
         <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan">
           In 2024, my team won DataFest, a 48-hour hackathon.
           <br />
-          Now I go back as a consultant to help other students take on the hackathon, where they explore their passion for data science.
+          Now I go back as a consultant to help other students take on the challenge, where they explore their passion for data science.
         </ProEntry>
         <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center">
           Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.

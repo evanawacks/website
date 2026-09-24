@@ -42,7 +42,7 @@ export const DatedEntries = () => (
         Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.
       </ProEntry>
       <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan">
-        Now I go back every year to help other students take on the hackathon.
+        Now I go back every year to help other students take on the challenge.
       </ProEntry>
     </ProSection>
   </ProPage>
