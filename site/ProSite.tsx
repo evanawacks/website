@@ -111,11 +111,9 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
         aside={<Credentials items={["Bachelor of Arts", "Psychology major", "Certificate in Applied Data Science"]} />}
       >
         <ProEntry date="2025 — present" title="Statistical Consultant" org="ASA DataFest @ Wesleyan">
-          In 2024, I worked with a fantastic team to take on DataFest, a 48-hour hackathon where we dug through data, identifying the problem
-          an online R textbook was facing in educating its students; quantified the impact of shallow problem sets; and, lastly, proposed a
-          solution to increase learners' engagement through in-depth projects.
+          In 2024, my team won DataFest, a 48-hour hackathon.
           <br />
-          Now I go back every year to help other students take on the hackathon and explore their passion for data science.
+          Now I go back as a consultant to help other students take on the hackathon where they explore their passion for data science.
         </ProEntry>
         <ProEntry date="Jan 2023 — May 2025" title="Head Teaching Assistant" org="Quantitative Analysis Center">
           Managed 15 TAs and mentored 52 students over nine semesters — helping them learn how to design studies, run logistic and OLS regression models, visualize data, and tell the stories they're passionate about.
