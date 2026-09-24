@@ -31,14 +31,16 @@ export interface FunFigureProps {
   tone?: "t1" | "t2" | "t3";
   /** Fixed crop height in px; omit to keep the photo's natural ratio. */
   height?: number;
+  /** Which part of the photo stays in view when cropped, e.g. "center bottom" to trim the top. Default "center". */
+  objectPosition?: string;
 }
 
 /** Framed photo (2px outline, 20px radius, 6px hard shadow) with a mono caption below. */
-export function FunFigure({ src, alt, caption, tone = "t1", height }: FunFigureProps) {
+export function FunFigure({ src, alt, caption, tone = "t1", height, objectPosition }: FunFigureProps) {
   return (
     <figure className="ew-fun-figure">
       <div className={cx("ew-fun-figure__frame", tone !== "t1" && `ew-fun-figure__frame--${tone}`)}>
-        <img className="ew-fun-figure__img" src={src} alt={alt} style={height ? { height } : undefined} />
+        <img className="ew-fun-figure__img" src={src} alt={alt} style={height || objectPosition ? { height, objectPosition } : undefined} />
       </div>
       {caption != null && <figcaption className="ew-fun-figure__caption">{caption}</figcaption>}
     </figure>

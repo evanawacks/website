@@ -12,6 +12,8 @@ export function App() {
   const [stage, setStage] = useState<Stage>(0);
   const [scheme, setScheme] = useState<FunScheme>("duck-blue");
   const [exiting, setExiting] = useState(false);
+  // The transport appears once music starts and stays until closed (close shows while paused).
+  const [showTransport, setShowTransport] = useState(false);
   const proRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
   const [photoStyle, setPhotoStyle] = useState<CSSProperties | undefined>();
@@ -43,6 +45,10 @@ export function App() {
     document.fonts?.ready.then(measure);
     return () => window.removeEventListener("resize", onResize);
   }, [measure]);
+
+  useEffect(() => {
+    if (audio.playing) setShowTransport(true);
+  }, [audio.playing]);
 
   const goFun = (e: MouseEvent<HTMLButtonElement>) => {
     if (proRef.current) shatter(proRef.current, e.clientX, e.clientY);
@@ -102,7 +108,7 @@ export function App() {
           onPro={goPro}
         />
       )}
-      {audio.title && (
+      {showTransport && (
         <Transport
           title={audio.title}
           playing={audio.playing}
@@ -110,6 +116,7 @@ export function App() {
           duration={audio.duration}
           onToggle={audio.toggle}
           onSeek={audio.seek}
+          onClose={() => setShowTransport(false)}
         />
       )}
     </>

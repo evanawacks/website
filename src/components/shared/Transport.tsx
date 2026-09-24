@@ -12,13 +12,15 @@ export interface TransportProps {
   onSeek?: (delta: number) => void;
   /** Fixed at the bottom-center of the viewport (default). Set false to render inline. */
   floating?: boolean;
+  /** When set, a × button appears while paused; call it to dismiss the transport. */
+  onClose?: () => void;
 }
 
 /**
  * Dark frosted pill audio transport: ↺ 15, a white round play/pause, 15 ↻, then the title and
- * elapsed/total in mono. Same look in both modes.
+ * elapsed/total in mono. Same look in both modes. Pass `onClose` to show a × while paused.
  */
-export function Transport({ title, playing = false, elapsed = 0, duration = 0, onToggle, onSeek, floating = true }: TransportProps) {
+export function Transport({ title, playing = false, elapsed = 0, duration = 0, onToggle, onSeek, floating = true, onClose }: TransportProps) {
   return (
     <div className={cx("ew-transport", !floating && "ew-transport--inline")}>
       <button type="button" className="ew-transport__seek" title="Back 15 seconds" onClick={() => onSeek?.(-15)}>
@@ -36,6 +38,11 @@ export function Transport({ title, playing = false, elapsed = 0, duration = 0, o
           {formatTime(elapsed)} / {formatTime(duration)}
         </span>
       </div>
+      {onClose && !playing && (
+        <button type="button" className="ew-transport__close" title="Close player" aria-label="Close player" onClick={onClose}>
+          ×
+        </button>
+      )}
     </div>
   );
 }
