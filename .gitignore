@@ -17,3 +17,6 @@ ds-bundle/
 .design-sync/.cache/
 .design-sync/learnings/
 .design-sync/node_modules
+
+# Original design handoff (full-res photos, prototype, spec) — kept locally, not on GitHub
+design_handoff_evan_wacks_site/

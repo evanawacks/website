@@ -19,9 +19,6 @@ The local copy of this repo lives at `~/Desktop/website`. Changes made there are
 | `src/` | The site's component library (`wacks-ui`): Pro and Fun components plus their styles and tokens. |
 | `.github/workflows/deploy.yml` | Builds `site/` and publishes it to GitHub Pages on every push to `main`. |
 | `.design-sync/` | Config, previews and notes for syncing the component library to Claude Design. |
-| `index.html` | The old single-file prototype. No longer served once Pages uses GitHub Actions (section 2). |
-| `design_handoff_evan_wacks_site/` | The design handoff: the source prototype (`Evan Wacks.dc.html`), original photos/audio, and a detailed spec in its own `README.md`. Kept for reference; the live site doesn't load anything from here. |
-| `.nojekyll` | Tells GitHub Pages to serve the files as-is (no Jekyll processing). |
 | `.gitignore` | Keeps macOS junk like `.DS_Store` out of the repo. |
 
 ---
@@ -59,7 +56,7 @@ Then open the address it prints (usually http://localhost:5173). Press `Ctrl + C
 Every push to `main` republishes the site in about a minute.
 
 **With GitHub Desktop**
-1. Edit/replace files in `~/Desktop/website` (e.g. drop in a new `index.html`).
+1. Edit files in `~/Desktop/website` (page text is in `site/ProSite.tsx` and `site/FunSite.tsx`; photos and audio in `site/public/assets/`).
 2. Open GitHub Desktop. The changed files show on the left.
 3. Type a short summary (e.g. "Update bio"), click **Commit to main**.
 4. Click **Push origin**.
@@ -97,5 +94,5 @@ With a custom domain, the site lives at the root of the domain (e.g. `https://ev
 
 ## Notes and next steps
 
-- `index.html` is about **20 MB** because the photos inside it aren't compressed, so first load is slow on phones. The handoff README (`design_handoff_evan_wacks_site/README.md`) describes rebuilding it as a lean static site (Vite or Astro) with compressed WebP images. If you do that, switch Pages to **Source: GitHub Actions** and deploy the build output (`dist/`).
+- The original design handoff (full-res photos, the prototype and its spec) lives in `~/Desktop/website/design_handoff_evan_wacks_site/` on this Mac only. It's ignored by git; back it up separately.
 - GitHub warns on files over 50 MB and blocks files over 100 MB, so keep individual assets under that.
