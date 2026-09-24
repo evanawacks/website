@@ -21,7 +21,7 @@ import {
   type FunScheme,
   type SwatchOption,
 } from "../src";
-import { EMAIL, LINKEDIN, PHONE_LINE, SKILLS, asset } from "./content";
+import { DISCLAIMER, EMAIL, LINKEDIN, PHONE_LINE, SKILLS, asset } from "./content";
 
 export type Stage = 0 | 1 | 2 | 3;
 
@@ -212,7 +212,7 @@ export function FunSite(props: FunSiteProps) {
         </FunGrid>
       </FunSection>
 
-      <FunFooter title="Let's talk data, or goats." meta={PHONE_LINE}>
+      <FunFooter title="Let's talk data, or goats." meta={PHONE_LINE} note={DISCLAIMER}>
         <FunButton size="md" tone="t3" href={`mailto:${EMAIL}`}>
           {EMAIL}
         </FunButton>

@@ -157,6 +157,7 @@ a.ew-pro-btn--solid:hover, a.ew-pro-btn--outline:hover { text-decoration: none; 
 .ew-pro-footer__title { font-family: var(--ew-font-serif); font-size: 28px; font-weight: 500; letter-spacing: -0.01em; }
 .ew-pro-footer__meta { font-family: var(--ew-font-mono); font-size: 12px; color: var(--ew-muted-2); }
 .ew-pro-footer__links { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; font-size: 15px; color: var(--ew-body); }
+.ew-pro-footer__note { flex-basis: 100%; margin: 0; padding-top: 22px; border-top: 1px solid var(--ew-rule-2); font-size: 12.5px; line-height: 1.55; color: var(--ew-muted-2); }
 
 @media (max-width: 760px) {
   .ew-pro__container { padding: 0 20px; }

@@ -19,7 +19,7 @@ import {
   RoleList,
   useAudio,
 } from "../src";
-import { EMAIL, LINKEDIN, PHONE_LINE, SKILLS, asset } from "./content";
+import { DISCLAIMER, EMAIL, LINKEDIN, PHONE_LINE, SKILLS, asset } from "./content";
 
 interface ProSiteProps {
   onFun: (e: MouseEvent<HTMLButtonElement>) => void;
@@ -147,7 +147,7 @@ export const ProSite = forwardRef<HTMLDivElement, ProSiteProps>(function ProSite
         </div>
       </ProSection>
 
-      <ProFooter title="Let's talk." meta={PHONE_LINE}>
+      <ProFooter title="Let's talk." meta={PHONE_LINE} note={DISCLAIMER}>
         <ProLink href={`mailto:${EMAIL}`}>{EMAIL}</ProLink>
         <ProLink href={LINKEDIN}>LinkedIn</ProLink>
         <ProButton variant="quiet" onClick={onFun}>

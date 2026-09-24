@@ -7,10 +7,12 @@ export interface FunFooterProps {
   meta?: ReactNode;
   /** Pill links, e.g. `<FunButton size="md" tone="t3" href="mailto:…">`. */
   children?: ReactNode;
+  /** Small full-width line at the very bottom, e.g. a disclaimer or credit. */
+  note?: ReactNode;
 }
 
 /** Fun page footer: 2px line on top, bold sign-off and mono meta left, pill links right. */
-export function FunFooter({ title = "Let's talk data, or goats.", meta, children }: FunFooterProps) {
+export function FunFooter({ title = "Let's talk data, or goats.", meta, children, note }: FunFooterProps) {
   return (
     <footer className="ew-fun-footer">
       <div className="ew-fun-footer__lead">
@@ -18,6 +20,7 @@ export function FunFooter({ title = "Let's talk data, or goats.", meta, children
         {meta != null && <span className="ew-fun-footer__meta">{meta}</span>}
       </div>
       <div className="ew-fun-footer__links">{children}</div>
+      {note != null && <p className="ew-fun-footer__note">{note}</p>}
     </footer>
   );
 }
