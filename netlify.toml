@@ -1,0 +1,9 @@
+# Netlify build settings. Netlify reads this file automatically when the
+# repo is connected, so no settings need to be entered in the Netlify UI.
+[build]
+  command = "npm run build:site"
+  publish = "dist-site"
+
+[build.environment]
+  NODE_VERSION = "22"
+

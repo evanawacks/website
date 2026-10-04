@@ -20,3 +20,6 @@ ds-bundle/
 
 # Original design handoff (full-res photos, prototype, spec) — kept locally, not on GitHub
 design_handoff_evan_wacks_site/
+
+# Netlify CLI local state
+.netlify/
